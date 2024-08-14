@@ -2,7 +2,7 @@
 FROM php:8.2-fpm
 
 # Defina o diretório de trabalho no container
-WORKDIR /var/www/html
+WORKDIR /var/www/htmldocer
 
 # Instale dependências do sistema
 RUN apt-get update && apt-get install -y \
