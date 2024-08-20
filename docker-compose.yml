@@ -11,6 +11,13 @@ services:
       - ./:/var/www/html
     networks:
       - laravel
+    develop:
+      watch:
+        - path: ./
+          action: sync
+          target: /var/www/html
+        - path: ./client/package.json
+          action: rebuild
 
   webserver:
     image: nginx:alpine
@@ -53,6 +60,7 @@ services:
 
 networks:
   laravel:
+
 
 volumes:
   db_data:
