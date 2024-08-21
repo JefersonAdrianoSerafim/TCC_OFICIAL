@@ -47,7 +47,7 @@ return [
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'tcc_saev'),
+            'database' => env('DB_DATABASE', 'tcc_saev_mysql'),
             'username' => env('DB_USERNAME', 'laravel'),
             'password' => env('DB_PASSWORD', 'secret'),
             'unix_socket' => env('DB_SOCKET', ''),
@@ -111,6 +111,19 @@ return [
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
+
+        'mongodb' => [
+
+            'driver' => 'mongodb',
+            'host' => env('MONGODB_HOST', '127.0.0.1'),
+            'port' => env('MONGODB_PORT', 30000),
+            'database' => env('MONGODB_DATABASE'),
+            'username'=> env('MONGODB_USERNAME'),
+            'password'=> env('MONGODB_PASSWORD'),
+            'options' => [
+                'authSource' => ' admin'
+            ]
+        ]
 
     ],
 
