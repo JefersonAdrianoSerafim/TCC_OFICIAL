@@ -8,9 +8,9 @@ services:
       - saev_network
 
   app:
-    image: my-app:latest
+    container_name: app
     build:
-      context: ./app
+      context: ./
     networks:
       - saev_network
     volumes:
