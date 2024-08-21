@@ -1,67 +1,33 @@
-#version: '3.8'
-
 services:
+  server:
+    image: nginx:latest
+    ports:
+      - "8000:8000"
+    networks:
+      - saev_network
+
   app:
+    image: my-app:latest
     build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: laravel_app
-    working_dir: /var/www/html
-    volumes:
-      - ./:/var/www/html
+      context: ./app
     networks:
-      - laravel
-    develop:
-      watch:
-        - path: ./
-          action: sync
-          target: /var/www/html
-        - path: ./client/package.json
-          action: rebuild
+      - saev_network
+    volumes:
+      - app-data:/app/data
 
-  webserver:
-    image: nginx:alpine
-    container_name: laravel_webserver
-    working_dir: /var/www/html
-    volumes:
-      - ./:/var/www/html
-      - ./docker/nginx:/etc/nginx/conf.d
-    ports:
-      - "8080:80"
+  database:
+    image: gileduardo/mysql:v1
+    env_file:
+      - .env
     networks:
-      - laravel
-    depends_on:
-      - app
-
-  db:
-    image: mysql:8.0
-    container_name: laravel_db
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: laravel
-      MYSQL_USER: laravel
-      MYSQL_PASSWORD: secret
+      - saev_network
     volumes:
-      - db_data:/var/lib/mysql
-    ports:
-      - "3306:3306"
-    networks:
-      - laravel
-
-  mongo:
-    image: mongo:4.4
-    container_name: laravel_mongo
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
-    networks:
-      - laravel
+      - db-data:/var/lib/mysql/data
 
 networks:
-  laravel:
-
+  saev_network:
+    driver: bridge
 
 volumes:
-  db_data:
-  mongo_data:
+  app-data:
+  db-data:

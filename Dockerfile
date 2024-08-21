@@ -2,7 +2,7 @@
 FROM php:8.2-fpm
 
 # Defina o diretório de trabalho no container
-WORKDIR /var/www/htmldocer
+WORKDIR /var/www/html
 
 # Instale dependências do sistema
 RUN apt-get update && apt-get install -y \
@@ -21,17 +21,17 @@ RUN apt-get update && apt-get install -y \
 # Instalar a extensão mongodb
 RUN pecl install mongodb && docker-php-ext-enable mongodb
 
-# Instale o Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
 # Copie os arquivos da aplicação para o container
 COPY . /var/www/html
+
+# Instale o Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # Dê permissões adequadas à pasta de armazenamento e cache
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Exponha a porta 9000 para o Nginx
-EXPOSE 9000
+# Exponha a porta 8000 para o Nginx
+EXPOSE 8000
 
 # Comando padrão para iniciar o PHP-FPM
 CMD ["php-fpm"]
