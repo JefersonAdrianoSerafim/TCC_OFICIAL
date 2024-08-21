@@ -1,6 +1,7 @@
 services:
   server:
     image: nginx:latest
+    container_name: nginx
     ports:
       - "8000:8000"
     networks:
@@ -14,15 +15,29 @@ services:
       - saev_network
     volumes:
       - app-data:/app/data
+    depends_on:
+      - mysql
+      - mongodb
 
-  database:
+  mysql:
     image: gileduardo/mysql:v1
+    container_name: mysql
     env_file:
       - .env
     networks:
       - saev_network
     volumes:
       - db-data:/var/lib/mysql/data
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    env_file:
+      - .env
+    volumes:
+      - mongodb-data:/var/lib/mongodb/data
+    networks:
+      - saev_network
 
 networks:
   saev_network:
@@ -31,3 +46,4 @@ networks:
 volumes:
   app-data:
   db-data:
+  mongodb-data:

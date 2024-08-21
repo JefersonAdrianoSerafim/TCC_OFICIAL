@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class usuario_turma extends Model
+class Usuario_Turma extends Model
 {
     use HasFactory;
 }

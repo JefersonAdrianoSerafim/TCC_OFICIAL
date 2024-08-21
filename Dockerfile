@@ -1,37 +1,27 @@
-# Use a imagem oficial do PHP 8.1 com FPM
+# Use the official PHP image
 FROM php:8.2-fpm
 
-# Defina o diretório de trabalho no container
+# Install system dependencies and PHP extensions
+RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev libzip-dev libpng-dev libicu-dev libxml2-dev libonig-dev git unzip && \
+    docker-php-ext-configure gd --with-freetype --with-jpeg && \
+    docker-php-ext-install gd zip pdo pdo_mysql intl xml && \
+    pecl install mongodb && \
+    docker-php-ext-enable mongodb
+
+# Set the working directory
 WORKDIR /var/www/html
 
-# Instale dependências do sistema
-RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    zip \
-    unzip \
-    libonig-dev \
-    libzip-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install pdo_mysql mbstring zip exif pcntl gd
+# Copy existing application directory
+COPY . .
 
-# Instalar a extensão mongodb
-RUN pecl install mongodb && docker-php-ext-enable mongodb
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
-# Copie os arquivos da aplicação para o container
-COPY . /var/www/html
+# Install dependencies
+RUN composer install
 
-# Instale o Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
-# Dê permissões adequadas à pasta de armazenamento e cache
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-
-# Exponha a porta 8000 para o Nginx
+# Expose port 9000
 EXPOSE 8000
 
-# Comando padrão para iniciar o PHP-FPM
+# Start PHP-FPM server
 CMD ["php-fpm"]
