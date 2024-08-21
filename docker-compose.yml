@@ -6,6 +6,8 @@ services:
       - "8000:8000"
     networks:
       - saev_network
+    # volumes:
+    #   - ./nginx.conf:/etc/nginx/nginx.conf
 
   app:
     container_name: app
@@ -15,23 +17,24 @@ services:
       - saev_network
     volumes:
       - app-data:/app/data
+      - .:/app/src
     depends_on:
       - mysql
       - mongodb
 
   mysql:
     image: gileduardo/mysql:v1
-    container_name: mysql
+    container_name: saev_mysql
     env_file:
       - .env
     networks:
       - saev_network
     volumes:
-      - db-data:/var/lib/mysql/data
+      - saev_mysql-data:/var/lib/saev_mysql/data
 
   mongodb:
     image: mongo:latest
-    container_name: mongodb
+    container_name: saev_mongodb
     env_file:
       - .env
     volumes:
@@ -45,5 +48,5 @@ networks:
 
 volumes:
   app-data:
-  db-data:
+  saev_mysql-data:
   mongodb-data:

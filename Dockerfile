@@ -12,13 +12,15 @@ RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev
 WORKDIR /var/www/html
 
 # Copy existing application directory
-COPY . .
+COPY . /var/www/html
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
 # Install dependencies
 RUN composer install
+
+RUN php artisan key:generate
 
 # Expose port 9000
 EXPOSE 8000
