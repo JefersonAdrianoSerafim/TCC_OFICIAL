@@ -10,9 +10,18 @@ services:
     #   - ./nginx.conf:/etc/nginx/nginx.conf
 
   app:
+    image: laravel:latest
     container_name: app
     build:
       context: ./
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=172.18.0.3
+      - DB_PORT=3306
+      - DB_DATABASE=saev
+      - DB_USERNAME=root
+      - DB_PASSWORD=example
+      - MYSQL_ROOT_PASSWORD=example
     networks:
       - saev_network
     volumes:
@@ -25,12 +34,21 @@ services:
   mysql:
     image: gileduardo/mysql:v1
     container_name: saev_mysql
-    env_file:
-      - .env
+    ports:
+      - "3306:3306"
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=172.18.0.3
+      - DB_PORT=3306
+      - DB_DATABASE=saev
+      - DB_USERNAME=root
+      - DB_PASSWORD=example
+      - MYSQL_ROOT_PASSWORD=example
     networks:
       - saev_network
     volumes:
       - saev_mysql-data:/var/lib/saev_mysql/data
+    
 
   mongodb:
     image: mongo:latest

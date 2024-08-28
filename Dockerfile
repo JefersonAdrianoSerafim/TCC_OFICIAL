@@ -1,29 +1,43 @@
-# Use the official PHP image
 FROM php:8.2-fpm
 
-# Install system dependencies and PHP extensions
-RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev libzip-dev libpng-dev libicu-dev libxml2-dev libonig-dev git unzip && \
-    docker-php-ext-configure gd --with-freetype --with-jpeg && \
-    docker-php-ext-install gd zip pdo pdo_mysql intl xml && \
-    pecl install mongodb && \
-    docker-php-ext-enable mongodb
+# Instalar dependências do sistema
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    locales \
+    zip \
+    jpegoptim optipng pngquant gifsicle \
+    vim \
+    unzip \
+    git \
+    curl \
+    libonig-dev \
+    libxml2-dev \
+    libzip-dev \
+    libssl-dev \
+    pkg-config \
+    && docker-php-ext-configure gd \
+    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 
-# Set the working directory
+# Instalar a extensão MongoDB
+RUN pecl install mongodb \
+    && docker-php-ext-enable mongodb
+
+# Instalar Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Definir diretório de trabalho
 WORKDIR /var/www/html
 
-# Copy existing application directory
-COPY . /var/www/html
+# Copiar o código do projeto
+COPY . .
 
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
-
-# Install dependencies
+# Instalar dependências do PHP
 RUN composer install
 
-RUN php artisan key:generate
-
-# Expose port 9000
+# Expor a porta 9000 e rodar o servidor PHP-FPM
 EXPOSE 8000
 
-# Start PHP-FPM server
 CMD ["php-fpm"]
