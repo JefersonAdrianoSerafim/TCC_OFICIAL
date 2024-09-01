@@ -38,6 +38,6 @@ COPY . .
 RUN composer install
 
 # Expor a porta 9000 e rodar o servidor PHP-FPM
-EXPOSE 8080
+EXPOSE 8000
 
 CMD ["php-fpm"]
