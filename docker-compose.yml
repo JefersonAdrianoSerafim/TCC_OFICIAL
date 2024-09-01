@@ -23,6 +23,8 @@ services:
       - MYSQL_ROOT_PASSWORD=example
     networks:
       - saev_network
+    ports:
+      - "8000:8000"
       
     volumes:
       - app-data:/app/data
