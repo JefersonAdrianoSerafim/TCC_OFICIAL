@@ -20,7 +20,7 @@ services:
       - DB_DATABASE=saev
       - DB_USERNAME=root
       - DB_PASSWORD=example
-      - MYSQL_ROOT_PASSWORD=example
+      - MYSQL_ROOT_PASSWORD=example # temos que adicionar talvez um configuração pra entrada
     networks:
       - saev_network
     ports:
