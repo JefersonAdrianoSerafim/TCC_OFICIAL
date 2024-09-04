@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categorias', function (Blueprint $table) {
-            $table->id('id_categoria');
-            $table->string('nome_categoria')->nullable(false);
+        Schema::create('user__subjects', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_user_fk');
+            $table->unsignedBigInteger('id_subject_fk');
+            $table->foreign('id_user_fk')->references('id_user')->on('users');
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categorias');
+        Schema::dropIfExists('user__subjects');
     }
 };

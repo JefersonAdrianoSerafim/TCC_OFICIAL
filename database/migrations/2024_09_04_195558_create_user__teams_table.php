@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('turmas', function (Blueprint $table) {
-            $table->id('id_turma');
-            $table->string('nome_turma', 50)->nullable(false);
-            $table->string('cor_turma', 7);
+        Schema::create('user__teams', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_team_fk');
+            $table->foreign('id_team_fk')->references('id_team')->on('teams');
+            $table->unsignedBigInteger('id_user_fk');
+            $table->foreign('id_user_fk')->references('id_user')->on('users');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('turmas');
+        Schema::dropIfExists('user__teams');
     }
 };

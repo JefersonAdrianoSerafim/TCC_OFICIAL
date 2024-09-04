@@ -1,12 +1,4 @@
-services:
-  server:
-    image: nginx:latest
-    container_name: nginx
-    ports:
-      - "8080:80"
-    networks:
-      - saev_network
-    
+services:  
 
   app:
     image: laravel:latest
@@ -17,10 +9,9 @@ services:
       - saev_network
     ports:
       - "8000:8000"
-      
     volumes:
       - app-data:/app/data
-      - .:/app/src
+      - .:/var/www/html
     depends_on:
       - mysql
       - mongodb
