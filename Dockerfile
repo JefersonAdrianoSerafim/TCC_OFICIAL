@@ -36,6 +36,7 @@ COPY . .
 
 # Instalar dependências do PHP
 RUN composer install
+ 
 
 # Expor a porta 9000 e rodar o servidor PHP-FPM
 EXPOSE 8000
