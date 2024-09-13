@@ -16,8 +16,8 @@
                 <h1>Entrar</h1>
                 <p>Acesse sua conta para usar os recursos do SAEV.</p>
                 <form class ="form-login"action="">
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Email">
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Senha"required>
+                    <input class="input" type="email" id="email" name="email" class="form-control" placeholder="Email">
+                    <input class="input" type="password" id="password" name="password" class="form-control" placeholder="Senha"required>
                     <button class="button"id="login">Entrar</button>
 
                 </form>
