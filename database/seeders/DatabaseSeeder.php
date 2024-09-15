@@ -16,6 +16,10 @@ class DatabaseSeeder extends Seeder
         // Here you can call other seeders
         // For example:
         $this->call(UserSeeder::class);
+        $this->call(TeamSeeder::class);
+        $this->call(SubjectSeeder::class);
+        $this->call(UserTeamSeeder::class);
+
         // $this->call(PostsTableSeeder::class);
         
         // You can also include direct seed logic here if necessary

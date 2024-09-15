@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class MainMenu extends Component
 {
-    public $activeComponent;
+    public $activeComponent ='home';
 
     public function setActiveComponent($component)
     {

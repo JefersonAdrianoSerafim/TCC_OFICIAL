@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('commitment__categories', function (Blueprint $table) {
+        Schema::create('commitment_categories', function (Blueprint $table) {
             $table->unsignedBigInteger('id_commitment_fk')->nullable(false);
             $table->unsignedBigInteger('id_category_fk')->nullable(false);
             $table->foreign('id_commitment_fk')->references('id')->on('commitments');

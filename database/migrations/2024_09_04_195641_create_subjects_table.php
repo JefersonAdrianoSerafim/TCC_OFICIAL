@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name_subject',50)->nullable(false);
             $table->string('teacher_subject',50)->nullable(true);
-            $table->string('color_subject',7)->nullable(true);
+            $table->string('color_subject',6)->nullable(true);
             $table->date('startdate_subject')->nullable(false);
             $table->date('enddate_subject')->nullable(false);
             $table->unsignedBigInteger('id_team_fk');

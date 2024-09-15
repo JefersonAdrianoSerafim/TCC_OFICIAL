@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('name_team',50)->nullable(false)->unique(true);
-            $table->string('color_team',7)->nullable(true);
+            $table->string('color_team',6)->nullable(true);
             $table->timestamps();
             $table->softDeletes();
            
