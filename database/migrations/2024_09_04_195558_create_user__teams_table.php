@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('user__teams', function (Blueprint $table) {
             $table->unsignedBigInteger('id_team_fk');
-            $table->foreign('id_team_fk')->references('id_team')->on('teams');
+            $table->foreign('id_team_fk')->references('id')->on('teams');
             $table->unsignedBigInteger('id_user_fk');
-            $table->foreign('id_user_fk')->references('id_user')->on('users');
+            $table->foreign('id_user_fk')->references('id')->on('users');
             $table->boolean('creator_userteam');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

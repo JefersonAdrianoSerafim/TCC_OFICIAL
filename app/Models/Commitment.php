@@ -12,7 +12,7 @@ class Commitment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_commitment',
+        'id',
         'name_commitment',
         'description_commitment',
         'date_commitment',

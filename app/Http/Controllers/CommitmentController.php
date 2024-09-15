@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CommitmentController
+class CommitmentController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -12,13 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('commitments', function (Blueprint $table) {
-            $table->id('id_commitment');
+            $table->id();
             $table->string('name_commitment',50)->nullable(false);
             $table->text('description_commitment')->nullable(true);
             $table->date('date_commitment')->nullable(false);
             $table->unsignedBigInteger('id_subject_fk')->nullable(false);
-            $table->foreign('id_subject_fk')->references('id_subject')->on('subjects');
+            $table->foreign('id_subject_fk')->references('id')->on('subjects');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

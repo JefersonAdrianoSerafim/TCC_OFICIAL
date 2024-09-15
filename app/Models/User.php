@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
-
+    
     protected $fillable = [
-        'id_user',
+        'id',
         'name_user',
         'email_user',
         'password_user'

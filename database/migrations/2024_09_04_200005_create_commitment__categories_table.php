@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('commitment__categories', function (Blueprint $table) {
             $table->unsignedBigInteger('id_commitment_fk')->nullable(false);
             $table->unsignedBigInteger('id_category_fk')->nullable(false);
-            $table->foreign('id_commitment_fk')->references('id_commitment')->on('commitments');
-            $table->foreign('id_category_fk')->references('id_category')->on('categories');
+            $table->foreign('id_commitment_fk')->references('id')->on('commitments');
+            $table->foreign('id_category_fk')->references('id')->on('categories');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

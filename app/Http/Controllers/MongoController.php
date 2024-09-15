@@ -6,7 +6,7 @@ use App\Models\mongodb;
 use Illuminate\Http\Request;
 class MongoController extends Controller
 {
-    public function index()
+    public function index() 
     {
         // Retrieve all documents from MongoDB collection
         $documents = mongodb::all();
