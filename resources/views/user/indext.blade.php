@@ -19,6 +19,7 @@
             <span class="icon"></span>
         </a>
     </div>
+    <script src="js/menu_script.js"></script>
 </body>
 
 </html>

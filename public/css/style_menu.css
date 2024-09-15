@@ -41,3 +41,27 @@ body {
     background-color: darkblue;
     border-radius: 50px;
 }
+
+.toggleBox.active .icon{
+    width: 0px;
+}
+
+.icon::before,.icon::after{
+    position: absolute;
+    content: '';
+    height: 4px;
+    width: 35px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: darkblue;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.icon::before{
+    top:12px;
+}
+
+.icon::after{
+    bottom: 8px;
+}

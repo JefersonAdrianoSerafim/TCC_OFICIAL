@@ -8,13 +8,21 @@
 }
 
 body {
-  background-image: url(../images/CurveLine.svg);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   height: 100vh;
+  background-color: #FF3CAC;
+  background-image: linear-gradient(to bottom right,darkblue,lightblue,white);
+  
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  height: 100vh;
+
 }
+
+
 
 .container {
   background-color: #fff;
@@ -61,16 +69,16 @@ button:hover {
   scale: 1.1;
 }
 
-.button:hover{
+.button:hover {
   box-shadow: 1px 0 15px white;
 }
 
-.btn{
+.btn {
   background-color: darkblue;
   color: white;
 }
 
-.btn:hover{
+.btn:hover {
   box-shadow: 1px 0 15px darkblue;
 }
 
@@ -131,6 +139,20 @@ button:hover {
   animation: move 0.5s;
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @keyframes move {
 
   0%,
@@ -163,8 +185,7 @@ button:hover {
   transition: all 0.5s ease-in-out;
 }
 
-.icons a:hover
-{
+.icons a:hover {
   background-color: darkblue;
   color: white;
   transition: all 0.5s ease-in-out;
