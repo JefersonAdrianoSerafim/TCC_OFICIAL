@@ -3,65 +3,83 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", "sans-serif";
+    border: none;
+    text-decoration: none;
+    outline: none;
 }
 
-body {
+body{
+    background-color: aliceblue;
+}
+
+nav{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left:0;
+    background-color: white;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.logo{
+    text-align: center;
     display: flex;
-    width: 100%;
-    min-height: 100vh;
-    justify-content: center;
-    background-image: linear-gradient(to right, rgb(40, 40, 202), darkblue);
+    transition: all 0.5s ease;
 }
 
-.container {
-    top: 150px;
-    height: 70px;
+.logo i{
+    padding: 0;
+    width: 45px;
+margin: 10px 0 0 10px;
+}
+
+.logo span{
+    font-weight: bold;
+    padding: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+a{
+    position: relative;
+    color:darkblue;
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+}
+
+.fa-solid{
+    position: relative;
     width: 70px;
-    background-color: #fff;
-    border-radius: 50px;
+    height: 40px;
+    top:14px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.nav-item{
     position: relative;
-    transition: all 0.4s ease;
-}
-
-.toggleBox{
-    position: relative;
-    display: block;
-    height:70px;
-    width:70px;
-    border-radius: 50px;
-}
-
-.icon{
-    position: absolute;
-    height: 4px;
-    width: 35px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,50%);
-    background-color: darkblue;
-    border-radius: 50px;
-}
-
-.toggleBox.active .icon{
-    width: 0px;
-}
-
-.icon::before,.icon::after{
-    position: absolute;
-    content: '';
-    height: 4px;
-    width: 35px;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: darkblue;
-    border-radius: 50px;
-    transition: 0.3s;
-}
-
-.icon::before{
     top:12px;
+    margin-left:10px;
 }
 
-.icon::after{
-    bottom: 8px;
+a:hover{
+    background-color:aliceblue;
 }
+
+nav:hover{
+    width:280px;
+    transition: all 0.5s ease;
+}
+
+
+.logout{
+    position: absolute;
+    bottom:0;
+}
+
