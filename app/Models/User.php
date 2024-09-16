@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Model
+class User extends Authenticatable
 {
-    use HasFactory;
+    use Notifiable;
     
     protected $fillable = [
         'id',
@@ -16,6 +18,17 @@ class User extends Model
         'email_user',
         'password_user'
     ];
+
+    public function getAuthPassword()
+    {
+        return $this->password_user;
+    }
+
+    public function getAuthIdentifierName()
+    {
+        return 'email_user';
+    }
+
     public function user_team(): HasMany
     {
         return $this->hasMany(User_Team::class);

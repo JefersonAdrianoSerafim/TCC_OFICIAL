@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav  class="nav flex-column">
-        <a class="nav-link" href="/login" ><img class="bi bi-person-circle"></img></a>
+        <a class="nav-link" href="#" ><img class="bi bi-person-circle"></img></a>
         <a class="nav-link" href="#">Link</a>
         <a class="nav-link" href="#">Link</a>
         <a class="nav-link" href="#"></a>

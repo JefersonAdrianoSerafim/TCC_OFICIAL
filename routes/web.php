@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 
 Route::prefix('/user') ->group(function(){
       
@@ -13,7 +14,7 @@ Route::prefix('/user') ->group(function(){
     
 });
 
-Route::post('/login', [UserController::class, 'login'])->name('user.login');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [UserController::class, 'store'])->name('user.store');
 Route::get('/login', [UserController::class, 'create'])->name('user.create');
 

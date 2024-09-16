@@ -10,11 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    private $regrasLogin =
-        [
-            'email_user' => 'required|email_user',
-            'password_user' => 'required',
-        ];
+
     private $msgs =
         [
             "required" => "Obrigatório!",
@@ -39,7 +35,7 @@ class UserController extends Controller
     {
         $users = User::all();
         //dd($users);
-        return view('user.indext', compact('users'));
+        return view('user.indext', compact('users', ['logged' => auth()->user()]));
     }
 
 
@@ -62,19 +58,6 @@ class UserController extends Controller
 
     }
 
-    public function login(Request $request)
-    {
-        $request->validate($this->regrasLogin, $this->msgs);
-
-        if (auth()->attempt($request->only(['email_user', 'password_user']))) {
-            return "<h1> inaga </h1>";
-            // return view('user.index', ['logged' => auth()->user()]);
-        }
-
-        return "<h1> asdasdas </h1>";
-
-        // return redirect()->back()->withErrors(['email' => 'Invalid Credential']);
-    }
     public function show(string $id)
     {
         $user = User::find($id);
