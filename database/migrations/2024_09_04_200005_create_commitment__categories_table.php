@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('commitment_categories', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_commitment_fk')->nullable(false);
-            $table->unsignedBigInteger('id_category_fk')->nullable(false);
+            $table->unsignedBigInteger('id_commitment_fk');
+            $table->unsignedBigInteger('id_category_fk');
             $table->foreign('id_commitment_fk')->references('id')->on('commitments');
             $table->foreign('id_category_fk')->references('id')->on('categories');
             $table->timestamps();

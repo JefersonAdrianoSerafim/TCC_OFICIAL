@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name_user', 50)->nullable(false);
             $table->string('email_user',50)->nullable()->unique(true);
-            $table->string('password_user',20)->nullable(false)->default('password');
+            $table->string('password_user')->nullable(false)->default('password');
             $table->timestamps();
             $table->softDeletes();
         });

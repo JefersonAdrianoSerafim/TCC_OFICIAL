@@ -15,50 +15,7 @@
 </head>
 
 <body>
-    <div class="container" id="container">
-        <div class="sign-up">
-            <form action="{{ route('user.store') }}" method="POST">
-                @csrf
-                <h1>Criar conta</h1>
-                <div class="icons">
-                    <a href="#"><i class="fa-brands fa-google"></i></a>
-                </div>
-                <span>ou use seu email para o cadastro</span>
-                <input type="text" name="name_user" id="" placeholder="nome" required>
-                <input type="email" name="email_user" id="" placeholder="email" required>
-                <input type="password" name="password_user" id="" placeholder="senha" required>
-                <button class ="btn" id ="submitRegister"type="submit">Cadastrar</button>
-            </form>
-        </div>
-        <div class="sign-in">
-            <form action="">
-                <h1>Entrar</h1>
-                <div class="icons">
-                    <a href="#"><i class="fa-brands fa-google"></i></a>
-                </div>
-                <span>ou use seu email para o entrar</span>
-                <input type="email" name="email" id="" placeholder="email" required>
-                <input type="password" name="password" id="" placeholder="senha" required>
-                <a href="#">Esqueceu a senha?</a>
-                <button class="btn" id="submitLogin">entrar</button>
-            </form>
-        </div>
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1>Olá, usuario!</h1>
-                    <p>se você ja tiver uma conta</p>
-                    <button class="button" id="login">entrar</button>
-                </div>
-                <div class="toggle-panel toggle-right">
-                    <h1>Olá, usuario!</h1>
-                    <p>se você não tiver uma conta</p>
-                    <button class="button" id="register">cadastrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    @livewire('Login')
     <script src="js/login_script.js"></script>
 </body>
 

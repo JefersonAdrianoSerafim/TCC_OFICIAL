@@ -17,11 +17,16 @@ class DatabaseSeeder extends Seeder
         // For example:
         $this->call(UserSeeder::class);
         $this->call(TeamSeeder::class);
-        $this->call(SubjectSeeder::class);
         $this->call(UserTeamSeeder::class);
+        $this->call(SubjectSeeder::class);
+        $this->call(UserSubjectSeeder::class);
+        $this->call(CommitmentSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(CommitmentCategorySeeder::class);
+
 
         // $this->call(PostsTableSeeder::class);
-        
+
         // You can also include direct seed logic here if necessary
     }
 }

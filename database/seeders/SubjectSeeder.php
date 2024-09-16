@@ -21,18 +21,14 @@ class SubjectSeeder extends Seeder
                 "startdate_subject" => now()->subDays(30),
                 "enddate_subject" => now()->addDays(30),
                 "id_team_fk" => "1",
-
-
             ],
             [
-                "name_subject" => "Desenvolvimento Web II",
-                "teacher_subject" => "Gil Eduardo",
-                "color_subject" => "008000",
+                "name_subject" => "CALCULOS LOUCOS",
+                "teacher_subject" => "PROFESSOR LOCAO",
+                "color_subject" => "FF0000",
                 "startdate_subject" => now()->subDays(30),
                 "enddate_subject" => now()->addDays(30),
-                "id_team_fk" => "1",
-
-
+                "id_team_fk" => "2",
             ]
 
         ];

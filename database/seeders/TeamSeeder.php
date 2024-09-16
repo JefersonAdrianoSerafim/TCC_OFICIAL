@@ -16,17 +16,17 @@ class TeamSeeder extends Seeder
         $data = [
             [
                 "name_team" => "INFO 22",
-                "color_team" =>"FF0000"
+                "color_team" => "FF0000"
             ],
             [
                 "name_user" => "MEC 22",
-                "color_team" =>"008000"
+                "color_team" => "008000"
             ],
             [
                 "name_user" => "MAMB 22",
-                "color_team" =>"0000FF"
+                "color_team" => "0000FF"
             ]
         ];
-                DB::table('teams')->insert($data);
+        DB::table('teams')->insert($data);
     }
 }
