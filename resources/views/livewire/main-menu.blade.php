@@ -31,7 +31,7 @@
                     <i class="fa-solid fa-circle-question"></i>
                     <span class="nav-item">Ajuda</span>
                 </a></li>
-            <li><a href="#" class="logout">
+            <li><a href="{{ route('logout')}}" class="logout">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span class="nav-item">Sair</span>
                 </a></li>
@@ -46,6 +46,8 @@
             @livewire('Profile')
         @elseif ($activeComponent == 'agenda')
             @livewire('Agenda')
+        @elseif ($activeComponent == 'graphics')
+            @livewire('Graphics')
         @endif
     </div>
 </div>

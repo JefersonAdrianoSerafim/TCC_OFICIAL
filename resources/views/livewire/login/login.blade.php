@@ -14,15 +14,15 @@
             </div>
             <span>ou use seu email para o cadastro</span>
 
-            <input type="text" name="name_user" placeholder="nome"  value="{{ old('name_user') }}"  class="form-control {{ $errors->has('name_user') ? 'is-invalid' : '' }} ">
-            @if($errors->has('name_user'))
+            <input type="text" name="name" placeholder="nome"  value="{{ old('name') }}"  class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }} ">
+            @if($errors->has('name'))
                 <div class='invalid-feedback'>
-                    {{ $errors->first('name_user') }}
+                    {{ $errors->first('name') }}
                 </div>
             @endif
 
-            <input type="email" name="email_user" placeholder="email"  value="{{ old('email_user') }}">
-            <input type="password" name="password_user" placeholder="senha"  value="{{ old('password_user') }}">
+            <input type="email" name="email" placeholder="email"  value="{{ old('email') }}">
+            <input type="password" name="password" placeholder="senha"  value="{{ old('password') }}">
             @if($errors->any())
                 <div class='invalid-feedback'>
                     <ul>
@@ -43,7 +43,8 @@
                 <a href="#"><i class="fa-brands fa-google"></i></a>
             </div>
             <span>ou use seu email para o entrar</span>
-            <input type="email" name="email_user" id="" placeholder="email" value=""required>
+            <input type="email" name="email" id="" placeholder="email" value=""required>
+            <input type="password" name="password" id="" placeholder="senha" required>
             @if($errors->any())
                 <div class='invalid-feedback'>
                     <ul>
@@ -51,8 +52,8 @@
                     </ul>
                 </div>
             @endif
-            <input type="password" name="password_user" id="" placeholder="senha" required>
             <a href="#">Esqueceu a senha?</a>
+            <input type="checkbox" name="remember" class="checkbox">Lembrar de mim</input>
             <button tyclass="btn" id="submitLogin">entrar</button>
         </form>
     </div>

@@ -18,14 +18,14 @@ class Commitment extends Model
         'date_commitment',
         'id_subject_fk'
     ];
-    public function commitment_category(): HasMany
+    public function categories()
     {
-        return $this->hasMany(Commitment_Category::class);
+        return $this->belongsToMany(Category::class, 'commitment_categories', 'id_commitment_fk', 'id_category_fk');
 
     }
 
-    public function subject(): BelongsTo
+    public function subjects()
     {
-        return $this->belongsTo(Subject::class);
+        return $this->belongsTo(Subject::class, 'id_subject_fk');
     }
 }

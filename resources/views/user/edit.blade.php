@@ -12,11 +12,11 @@
     @csrf
     @method('PUT')
     <label class="mt-3">Nome</label>
-    <input type="text" name="name_user" class="form-control" value="{{$user->name_user}}"/> 
+    <input type="text" name="name" class="form-control" value="{{$user->name}}"/> 
     <label class="mt-3">Email</label>
-    <input type="text" name="email_user" class="form-control" value="{{$user->email_user}}"/>
+    <input type="text" name="email" class="form-control" value="{{$user->email}}"/>
     <label class="mt-3">Senha</label>
-    <input type="text" name="password_user" class="form-control" value="{{$user->password_user}}"/>
+    <input type="text" name="password" class="form-control" value="{{$user->password}}"/>
 
 
     <a href="{{route('user.index')}}" class="btn btn-secondary mt-2">

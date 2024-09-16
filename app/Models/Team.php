@@ -16,12 +16,12 @@ class Team extends Model
         'name_team',
         'color_team'
     ];
-    public function user_team(): HasMany
+    public function users()
     {
-        return $this->hasMany(User_Team::class);
+        return $this->belongsToMany(User::class, 'user_teams','id_user_fk', 'id_team_fk');
     }
 
-    public function subject(): HasMany
+    public function subjects()
     {
         return $this->hasMany(Subject::class);
     }

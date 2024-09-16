@@ -14,13 +14,13 @@ class User_Subject extends Model
         'id_user_fk',
         'id_subject_fk'
     ];
-    public function user(): BelongsTo
+    public function users(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 
-    public function subject(): BelongsTo
+    public function subjects(): BelongsTo
     {
-        return $this->belongsTo(Subject::class);
+        return $this->belongsToMany(Subject::class);
     }
 }

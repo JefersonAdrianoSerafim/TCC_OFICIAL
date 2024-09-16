@@ -9,18 +9,18 @@ use Illuminate\Support\Facades\Http;
 class Login extends Component
 {
 
-    public $name_user;
-    public $email_user;
-    public $password_user;
+    public $name;
+    public $email;
+    public $password;
 
     public function createUser()
     {
         
         // Make a POST request to the store method in the UserController
         $response = Http::post(route('user.store'), [
-            'name_user' => $this->name_user,
-            'email_user' => $this->email_user,
-            'password_user' => $this->password_user,
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => $this->password,
         ]);
 
         // Handle the response from the controller

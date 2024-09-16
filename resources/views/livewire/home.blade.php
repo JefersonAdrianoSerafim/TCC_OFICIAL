@@ -20,7 +20,7 @@
                     @foreach($users as $user)
                     <tr>
                         <td class ="">{{ $loop->iteration }}</td>
-                        <td>{{ $user->name_user }}</td>
+                        <td>{{ $user->name }}</td>
                         <td>
                             <a href="{{ route('user.show', parameters: $user->id )}}" class="">View</a>
                             <a href="{{ route('user.edit', $user->id )}}" class="">Edit</a>
@@ -29,7 +29,6 @@
                                 @method('DELETE')
                                 <button type="submit" class="">Delete</button>
                             </form>
-                            <a href="{{ route('user.create')}}" class="">Criar</a>
                         </td>
                     </tr>
                     @endforeach

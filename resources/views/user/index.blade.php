@@ -29,7 +29,7 @@
                     @foreach($users as $user)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $user->name_user }}</td>
+                        <td>{{ $user->name }}</td>
                         <td>
                             <a href="{{ route('user.show', parameters: $user->id )}}" class="btn btn-info btn-sm">View</a>
                             <a href="{{ route('user.edit', $user->id )}}" class="btn btn-warning btn-sm">Edit</a>

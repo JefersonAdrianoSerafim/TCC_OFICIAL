@@ -7,35 +7,28 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
     
     protected $fillable = [
         'id',
-        'name_user',
-        'email_user',
-        'password_user'
+        'name',
+        'email',
+        'password'
     ];
 
-    public function getAuthPassword()
+    public function teams()
     {
-        return $this->password_user;
+        return $this->belongsToMany(Teams::class, 'user_teams','id_user_fk', 'id_team_fk');
     }
 
-    public function getAuthIdentifierName()
+    public function subjects()
     {
-        return 'email_user';
+        return $this->belongsToMany(Subject::class, 'user_subjects','id_user_fk', 'id_subject_fk');
     }
 
-    public function user_team(): HasMany
-    {
-        return $this->hasMany(User_Team::class);
-    }
 
-    public function user_subject(): HasMany
-    {
-        return $this->hasMany(User_Subject::class);
-    }
 }

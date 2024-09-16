@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 
-Route::prefix('/user') ->group(function(){
+Route::middleware('auth')->prefix('/user')->group(function(){
       
     Route::get('/', [UserController::class, 'index'])->name('user.index');
     Route::delete('/{id}', [UserController::class, 'destroy'])->name('user.destroy');
@@ -15,6 +15,7 @@ Route::prefix('/user') ->group(function(){
 });
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/register', [UserController::class, 'store'])->name('user.store');
 Route::get('/login', [UserController::class, 'create'])->name('user.create');
 

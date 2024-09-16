@@ -15,13 +15,13 @@ class Commitment_Category extends Model
         'id_category_fk',
         'id_commitment_fk'
     ];
-    public function commitment(): BelongsTo
+    public function commitments(): BelongsTo
     {
-        return $this->belongsTo(Commitment::class);
+        return $this->belongsToMany(Commitment::class);
     }
 
-    public function category(): BelongsTo
+    public function categories(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 }

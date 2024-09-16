@@ -20,18 +20,18 @@ class Subject extends Model
         'enddate_subject',
         'id_team_fk'
     ];
-    public function commitment(): HasMany
+    public function commitments()
     {
-        return $this->hasMany(Commitment::class);
-    }
-    
-    public function user_subject(): HasMany
-    {
-        return $this->hasMany(User_Subject::class);
+        return $this->hasMany(Commitment::class,  'id_subject_fk');
     }
 
-    public function team(): BelongsTo
+    public function teams()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Team::class, 'id_team_fk');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_subjects','id_user_fk', 'id_subject_fk');
     }
 }

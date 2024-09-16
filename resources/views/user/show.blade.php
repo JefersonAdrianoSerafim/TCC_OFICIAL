@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4">{{ $user->name_user}}</h1>
+        <h1 class="mb-4">{{ $user->name}}</h1>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -21,8 +21,8 @@
                 <tbody>
                     <tr>
 
-                        <td>{{ $user->email_user}}</td>
-                        <td>{{ $user->password_user}}</td>
+                        <td>{{ $user->email}}</td>
+                        <td>{{ $user->password}}</td>
                         <td> <a href="{{ route('user.index' )}}" class="btn btn-info btn-sm">Voltar</a></td>
                     </tr>
                 </tbody>

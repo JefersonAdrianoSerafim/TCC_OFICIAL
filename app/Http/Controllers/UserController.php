@@ -16,15 +16,14 @@ class UserController extends Controller
             "required" => "Obrigatório!",
             "max" => "[:attribute] só pode ter no máximo [:max] caracteres!",
             "min" => "[:attribute] deve ter no mínimo [:min] caracteres!",
-            "unique" => "Esse [:attribute] já existe!",
-            "email_user" => "Esse email não está cadastrado"
+            "unique" => "Esse [:attribute] já existe!"
         ];
 
     private $regras =
         [
-            'name_user' => 'required|max:50|min:4',
-            'email_user' => 'required|max:50|unique:users',
-            'password_user' => 'required|max:25|min:8'
+            'name' => 'required|max:50|min:4',
+            'email' => 'required|max:50|unique:users',
+            'password' => 'required|max:25|min:8'
         ];
 
 
@@ -34,8 +33,21 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        //dd($users);
-        return view('user.indext', compact('users', ['logged' => auth()->user()]));
+        $logged = auth()->user();
+        return view('user.indext', compact('users', 'logged'));
+    }
+
+    public function verifyIfCommitmentNull()
+    {
+        $exists = 1;
+        foreach(auth()->user()->subjects as $subject)
+        {
+            if ($subject->commitments->isEmpty())
+            {
+                $exists = $exists * 1;
+            }
+        }
+        return $exists;
     }
 
 
@@ -49,9 +61,9 @@ class UserController extends Controller
         $request->validate($this->regras, $this->msgs);
         
         User::create([
-            'name_user' => $request->input('name_user'),
-            'email_user' => $request->input('email_user'),
-            'password_user' => Hash::make($request->input('password_user')),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
         ]);
 
         return redirect()->route('user.index')->with('message', 'User created successfully!');
@@ -84,9 +96,9 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        $user->name_user = $request->name_user;
-        $user->email_user = $request->email_user;
-        $user->password_user = $request->password_user;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
         $user->save();
         return redirect()->back();
 
@@ -102,8 +114,8 @@ class UserController extends Controller
         if (isset($user)) {
             $user->delete();
             //return redirect()->route('user.index');
-            return redirect()->away('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+            return redirect();
         }
-        return redirect()->away('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+        return redirect();
     }
 }

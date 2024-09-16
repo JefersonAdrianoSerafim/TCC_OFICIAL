@@ -17,8 +17,8 @@ class Category extends Model
         'description_category'
     ];
     
-    public function commitment_category(): HasMany
+    public function commitments()
     {
-        return $this->hasMany(Commitment_Category::class);
+        return $this->belongsToMany(Commitment::class, 'commitment_categories', 'id_commitment_fk', 'id_category_fk');
     }
 }

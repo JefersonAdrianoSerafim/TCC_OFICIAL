@@ -15,13 +15,13 @@ class User_Team extends Model
         'id_user_fk',
         'creator_userteam'
     ];
-    public function user(): BelongsTo
+    public function users(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 
-    public function team(): BelongsTo
+    public function teams(): BelongsTo
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsToMany(Team::class);
     }
 }

@@ -7,6 +7,11 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 class Kernel extends HttpKernel
 { 
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\AuthenticateWithToken::class,
+        'auth:api' =>
+            [
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            'throttle:api', \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            ],
+
     ];
 }
