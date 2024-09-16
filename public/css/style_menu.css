@@ -8,6 +8,10 @@
     outline: none;
 }
 
+/*
+Nav Bar da esquerda da tela do Menu
+*/
+
 body {
     background-color: aliceblue;
     display: flex;
@@ -91,19 +95,54 @@ nav:hover {
     bottom: 0;
 }
 
+/*
+Menu de agenda
+*/
+
 .containerMain {
     display: flex;
-    width: 100vw;
     height: 100vw;
     padding-left: 100px;
+    background-color: aliceblue;
 }
 
-.active {
+
+
+.containerLeftAgenda {
+    padding: 10px;
     display: flex;
-    width:100vw;
     height: 100vh;
-    overflow-y: auto;
+    flex-basis: 60%;
+    flex-direction: column;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: 0.5s ease;
 }
+
+.containerLeftAgenda:hover {
+    flex-basis: 70%;
+    transition: 0.5s ease;
+}
+
+
+
+.containerRightAgenda {
+    display: flex;
+    height: 100vh;
+    flex-basis: 40%;
+    flex-direction: column;
+    background-color: rgb(216, 230, 243);
+    transition: 0.5s ease;
+    padding: 10px;
+    ;
+    flex-wrap: wrap;
+}
+
+.containerRightAgenda:hover {
+    flex-basis: 50%;
+    transition: 0.5s ease;
+}
+
 
 .userList {
     display: flex;
@@ -111,3 +150,70 @@ nav:hover {
     justify-content: center;
     flex-direction: column;
 }
+
+/*
+Container Ativo no menu
+*/
+
+.containerActiveCenter {
+    display: flex;
+    width: 94.6vw;
+}
+
+table {
+    border: 1px solid darkblue;
+    border-collapse: collapse;
+}
+
+
+.theadTable {
+    background-color: darkblue;
+    color: white;
+    text-align: left;
+}
+
+
+.tbodyTable {
+    color: darkblue;
+    background-color: rgb(245, 247, 248);
+}
+
+.buttons {
+    align-self: center;
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+.buttons button {
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.5s ease;
+    bottom: 0px;
+}
+
+.buttons button:hover {
+    scale: 1.1;
+    transition: 0.5s ease;
+
+}
+
+.createButton {
+
+    background-color: darkblue;
+    color: white;
+}
+
+.deleteButton {
+    background-color: darkred;
+    color: white;
+}
+
+.editButton {
+    background-color: darkcyan;
+    color: white;
+}
+
+/*
+Menu de perfil
+*/

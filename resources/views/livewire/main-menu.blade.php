@@ -39,7 +39,7 @@
         </ul>
 
     </nav>
-    <div class="active">
+    <div>
         @if ($activeComponent == 'home')
             @livewire('Home')
         @elseif ($activeComponent == 'profile')
