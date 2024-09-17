@@ -18,7 +18,10 @@ body {
     height: 100vh;
     overflow: hidden;
 }
-
+.nav{
+    display: flex;
+    margin-left: 100px;
+}
 nav {
     flex: 1;
     position: absolute;
@@ -26,7 +29,7 @@ nav {
     bottom: 0;
     height: 100%;
     left: 0;
-    background-color: white;
+    background-color: darkblue;
     width: 90px;
     overflow: hidden;
     transition: width 0.2s linear;
@@ -34,12 +37,14 @@ nav {
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     margin-right: 30px;
+    color: white;
 }
 
 .logo {
     text-align: center;
     display: flex;
     transition: all 0.5s ease;
+    color: white;
 }
 
 .logo i {
@@ -57,7 +62,7 @@ nav {
 
 a {
     position: relative;
-    color: darkblue;
+    color: white;
     font-size: 14px;
     display: table;
     width: 300px;
@@ -80,7 +85,7 @@ a {
 }
 
 a:hover {
-    background-color: aliceblue;
+    background-color: rgb(67, 67, 168);
 }
 
 nav:hover {
@@ -90,21 +95,30 @@ nav:hover {
 
 
 .logout {
-    border-top: 1px solid darkblue;
+    border-top: 1px solid white;
     position: absolute;
     bottom: 0;
+}
+
+
+
+.containerMain {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: aliceblue;
+}
+
+.userList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 /*
 Menu de agenda
 */
-
-.containerMain {
-    display: flex;
-    height: 100vw;
-    padding-left: 100px;
-    background-color: aliceblue;
-}
 
 
 
@@ -144,21 +158,11 @@ Menu de agenda
 }
 
 
-.userList {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
+
 
 /*
 Menu de agenda
 */
-
-.containerActiveCenterAgenda {
-    display: flex;
-    width: 94.6vw;
-}
 
 table {
     border: 1px solid darkblue;
@@ -215,19 +219,19 @@ table {
     color: white;
 }
 
-.containerActiveCenterAgenda .containerCreate{
+.containerActiveCenterAgenda .containerCreate {
     display: flex;
     align-items: start;
     flex-direction: column;
-    
+
 }
 
-.containerCreate form{
+.containerCreate form {
     display: flex;
     flex-direction: column;
 }
 
-.containerCreate form input{
+.containerCreate form input {
     margin: 10px;
     padding: 10px 20px;
 }
@@ -237,12 +241,25 @@ table {
 Menu de perfil
 */
 
-.containerActiveCenterProfile {
+
+
+/*
+Menu de turmas
+*/
+
+
+.containerActiveMenu {
     display: flex;
-    width: 94.6vw;
-    flex-direction: column;
+    width: 100vw;
+
 }
 
-.containerActiveCenterProfile h1{
-    color:darkblue;
+.containerActive{
+    display: flex;
+    flex-grow: 1;
+}
+
+.containerTeam{
+    display: flex;
+    flex-direction: column;
 }

@@ -22,7 +22,7 @@ class User extends Authenticatable
 
     public function teams()
     {
-        return $this->belongsToMany(Teams::class, 'user_teams','id_user_fk', 'id_team_fk');
+        return $this->belongsToMany(Team::class, 'user_teams','id_user_fk', 'id_team_fk');
     }
 
     public function subjects()

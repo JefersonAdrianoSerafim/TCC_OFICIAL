@@ -6,7 +6,7 @@
     @else
         <table class="tableSubjectsUser">
             <thead class="theadTable">
-                <tr class = "trTable">
+                <tr class="trTable">
                     <th id="thName">Nome</th>
                     <th id="thDescription">descrição</th>
                     <th id="thSubject"> Materia</th>
@@ -26,4 +26,5 @@
             </tbody>
         </table>
     @endif
+    <div id="curve_chart" style="width: 900px; height: 500px">  </div>
 </div>

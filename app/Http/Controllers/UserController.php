@@ -34,7 +34,17 @@ class UserController extends Controller
     {
         $users = User::all();
         $logged = auth()->user();
-        return view('user.indext', compact('users', 'logged'));
+
+        $chartData = [
+            ['Year', 'Sales'],
+            ['2019', 1000],
+            ['2020', 1170],
+            ['2021', 660],
+            ['2022', 1030]
+        ];
+
+
+        return view('user.indext', compact('users','chartData', 'logged'));
     }
 
     public function verifyIfCommitmentNull()

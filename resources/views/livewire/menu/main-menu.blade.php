@@ -1,4 +1,5 @@
 <div class="containerMain">
+    <div class="nav">
     <nav>
         <ul>
             <li>
@@ -14,6 +15,10 @@
             <li><a href="#" wire:click=" setActiveComponent('profile')">
                     <i class="fa-solid fa-user"></i>
                     <span class="nav-item">Perfil</span>
+                </a></li>
+            <li><a href="#" wire:click=" setActiveComponent('team')">
+                    <i class="fa-solid fa-people-group"></i>
+                    <span class="nav-item">Turmas</span>
                 </a></li>
             <li><a href="#" wire:click=" setActiveComponent('agenda')">
                     <i class="fa-solid fa-calendar-days"></i>
@@ -39,7 +44,9 @@
         </ul>
 
     </nav>
-    <div>
+    </div>
+    
+    <div class="containerActiveMenu">
         @if ($activeComponent == 'home')
             @livewire('Home')
         @elseif ($activeComponent == 'profile')
@@ -48,6 +55,8 @@
             @livewire('Agenda')
         @elseif ($activeComponent == 'graphics')
             @livewire('Graphics')
+        @elseif ($activeComponent == 'team')
+            @livewire('Team')
         @endif
     </div>
 </div>

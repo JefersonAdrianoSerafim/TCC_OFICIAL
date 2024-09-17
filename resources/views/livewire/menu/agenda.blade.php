@@ -1,4 +1,4 @@
-<div class="containerActiveCenterAgenda">
+<div class="containerActive">
     <div class="containerLeftAgenda">
         <h1 class="">Lista de compromissos</h1>
 
@@ -36,7 +36,7 @@
                 <form action="">
                     <input type="text" name="" id="" placeholder="Nome">
                     <input type="text" name="" id="" placeholder="Descrição">
-                    <input type="text" name="" id="" placeholder="Data">
+                    <input type="date" name="" id="" placeholder="Data">
                 </form>
             </div>
 

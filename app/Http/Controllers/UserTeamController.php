@@ -6,6 +6,18 @@ use Illuminate\Http\Request;
 
 class UserTeamController extends Controller
 {
+
+    public function findTeamsByUser()
+    {
+        $userTeams = User_Team::where('id_user_fk', auth()->user()->id)->get();
+        $teams = null;
+        foreach($userTeams as $userTeam)
+        {
+            $teams += team->findById($userTeam->id_team_fk);
+        }
+
+        return $teams;
+    }
     /**
      * Display a listing of the resource.
      */
