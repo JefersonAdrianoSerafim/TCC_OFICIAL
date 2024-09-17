@@ -8,6 +8,6 @@ class Configuration extends Component
 {
     public function render()
     {
-        return view('livewire.configuration');
+        return view('livewire.menu.configuration');
     }
 }

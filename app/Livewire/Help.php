@@ -8,6 +8,6 @@ class Help extends Component
 {
     public function render()
     {
-        return view('livewire.help');
+        return view('livewire.menu.help');
     }
 }

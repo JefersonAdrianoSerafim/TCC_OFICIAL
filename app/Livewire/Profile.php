@@ -8,6 +8,6 @@ class Profile extends Component
 {
     public function render()
     {
-        return view('livewire.profile');
+        return view('livewire.menu.profile');
     }
 }

@@ -8,6 +8,6 @@ class Graphics extends Component
 {
     public function render()
     {
-        return view('livewire.graphics');
+        return view('livewire.menu.graphics');
     }
 }

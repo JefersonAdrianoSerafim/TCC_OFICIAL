@@ -152,10 +152,10 @@ Menu de agenda
 }
 
 /*
-Container Ativo no menu
+Menu de agenda
 */
 
-.containerActiveCenter {
+.containerActiveCenterAgenda {
     display: flex;
     width: 94.6vw;
 }
@@ -195,6 +195,7 @@ table {
 .buttons button:hover {
     scale: 1.1;
     transition: 0.5s ease;
+    cursor: pointer;
 
 }
 
@@ -214,6 +215,34 @@ table {
     color: white;
 }
 
+.containerActiveCenterAgenda .containerCreate{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    
+}
+
+.containerCreate form{
+    display: flex;
+    flex-direction: column;
+}
+
+.containerCreate form input{
+    margin: 10px;
+    padding: 10px 20px;
+}
+
+
 /*
 Menu de perfil
 */
+
+.containerActiveCenterProfile {
+    display: flex;
+    width: 94.6vw;
+    flex-direction: column;
+}
+
+.containerActiveCenterProfile h1{
+    color:darkblue;
+}
