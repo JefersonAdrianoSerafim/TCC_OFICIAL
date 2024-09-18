@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name_commitment',50)->nullable(false);
             $table->text('description_commitment')->nullable(true);
-            $table->date('date_commitment')->nullable(false);
+            $table->date('date_commitment')->nullable(true);
             $table->unsignedBigInteger('id_subject_fk')->nullable(false);
             $table->foreign('id_subject_fk')->references('id')->on('subjects');
             $table->timestamps();

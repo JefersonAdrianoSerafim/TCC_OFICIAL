@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="teste"></div>
+    <form  method="POST" action="{{ route('team_user.store', $id) }}">
+        @csrf
+        <button class="deleteButton" type="submit">Entrar</button>
+    </form>
 </body>
 </html>

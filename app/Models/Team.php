@@ -16,6 +16,7 @@ class Team extends Model
         'name_team',
         'color_team'
     ];
+    
     public function users()
     {
         return $this->belongsToMany(User::class, 'user_teams','id_user_fk', 'id_team_fk');
@@ -23,6 +24,6 @@ class Team extends Model
 
     public function subjects()
     {
-        return $this->hasMany(Subject::class);
+        return $this->hasMany(Subject::class, 'id_team_fk');
     }
 }

@@ -9,17 +9,6 @@ class UserSubjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function findSubjectsByUser()
-    {
-        $userSubjects = User_Subject::where('id_user_fk', auth()->user()->id)->get();
-        $subjects = null;
-        foreach($userSubjects as $userSub)
-        {
-            $subjects += Subject->findById($userSub->id_subject_fk);
-        }
-
-        return $subjects;
-    }
 
     /**
      * Show the form for creating a new resource.

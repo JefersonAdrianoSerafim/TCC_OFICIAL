@@ -11,6 +11,8 @@ class Commitment_Category extends Model
 {
     use HasFactory;
 
+    protected $table = 'commitment_categories';
+
     protected $fillable = [
         'id_category_fk',
         'id_commitment_fk'

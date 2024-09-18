@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Team as Time;
 use Livewire\Component;
 
 class Team extends Component
@@ -9,15 +10,15 @@ class Team extends Component
 
     public $activeGroupTeamL ='create';
     public $activeSubjectATeamR ='create';
-    public function setActiveGroupTeamL($component)
-    {
-        $this->activeGroupTeamL = $component;
-    }
 
-    
-    public function setActiveSubjectAgendaR($component)
+    public $selected_team = null;
+
+    public function setActiveGroupTeamL($component, string $id)
     {
-        $this->activeSubjectAgendaR = $component;
+        $team = Time::find($id);
+        $this->activeGroupTeamL = $component;
+        $this->selected_team = $team;
+
     }
     public function render()
     {

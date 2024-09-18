@@ -2,44 +2,49 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User_Team;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class UserTeamController extends Controller
 {
 
-    public function findTeamsByUser()
+    function isBcryptHash($hash)
     {
-        $userTeams = User_Team::where('id_user_fk', auth()->user()->id)->get();
-        $teams = null;
-        foreach($userTeams as $userTeam)
+        return preg_match('/^\$2[ayb]\$.{56}$/', $hash);
+    }
+
+    public function create($id, $hash)
+    {
+
+        if($this->isBcryptHash($hash))
         {
-            $teams += team->findById($userTeam->id_team_fk);
+            //return "<h1> uga uga </h1>";
+            if(Hash::check($id, $hash));
+            {
+                //return "<h1> buga buga </h1>";
+                $exists = User_team::where('id_team_fk', $id)->where('id_user_fk', auth()->user()->id)->first();
+                if($exists == null)
+                {
+                    return view('teste')->with('id', $id);
+                }
+                
+            }
         }
-
-        return $teams;
-    }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+        
+        
+        return redirect()->route('user.index');
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function store($id)
     {
-        //
-    }
+        User_Team::create([
+            'id_team_fk' => $id,
+            'id_user_fk' => auth()->user()->id
+        ]);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        return redirect()->route('user.index');
     }
 
     /**

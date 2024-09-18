@@ -14,15 +14,9 @@
             </div>
             <span>ou use seu email para o cadastro</span>
 
-            <input type="text" name="name" placeholder="nome"  value="{{ old('name') }}"  class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }} ">
-            @if($errors->has('name'))
-                <div class='invalid-feedback'>
-                    {{ $errors->first('name') }}
-                </div>
-            @endif
-
-            <input type="email" name="email" placeholder="email"  value="{{ old('email') }}">
-            <input type="password" name="password" placeholder="senha"  value="{{ old('password') }}">
+            <input type="text" name="name" placeholder="nome"  value="{{ old('name') }}" class="form-control" >
+            <input type="email" name="email" placeholder="email"  value="{{ old('email') }}" class="form-control" >
+            <input type="password" name="password" placeholder="senha"  value="{{ old('password') }}" class="form-control" >
             @if($errors->any())
                 <div class='invalid-feedback'>
                     <ul>
@@ -43,8 +37,8 @@
                 <a href="#"><i class="fa-brands fa-google"></i></a>
             </div>
             <span>ou use seu email para o entrar</span>
-            <input type="email" name="email" id="" placeholder="email" value=""required>
-            <input type="password" name="password" id="" placeholder="senha" required>
+            <input type="email" name="emailLogin" id="" placeholder="email" value="{{old('emailLogin')}}" class="form-control" required>
+            <input type="password" name="passwordLogin" id="" placeholder="senha" value="{{old('passwordLogin')}}" class="form-control" required>
             @if($errors->any())
                 <div class='invalid-feedback'>
                     <ul>

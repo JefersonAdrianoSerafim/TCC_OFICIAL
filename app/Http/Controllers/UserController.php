@@ -47,76 +47,66 @@ class UserController extends Controller
         return view('user.indext', compact('users','chartData', 'logged'));
     }
 
-    public function verifyIfCommitmentNull()
+    public static function verifyIfCommitmentNull()
     {
         $exists = 1;
         foreach(auth()->user()->subjects as $subject)
         {
-            if ($subject->commitments->isEmpty())
+            if ($subject->commitments->isNotEmpty())
             {
-                $exists = $exists * 1;
+                $exists = $exists * 0;
             }
         }
         return $exists;
     }
-
 
     public function create()
     {
         return view('user.create');
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        $request->validate($this->regras, $this->msgs);
+        request()->validate($this->regras, $this->msgs);
         
         User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
+            'name' => request()->input('name'),
+            'email' => request()->input('email'),
+            'password' => Hash::make(request()->input('password')),
         ]);
-
-        return redirect()->route('user.index')->with('message', 'User created successfully!');
+        $credentials = request()->only(['email', 'password']);
+        auth()->attempt($credentials);
+        return redirect()->route('user.index');
 
     }
 
     public function show(string $id)
     {
         $user = User::find($id);
-        //dd($user->toSql());
         if (!$user) {
             return redirect()->route('user.index');
         }
         return view('user.show', compact('user'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $user = User::find($id);
         return view('user.edit', compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         $user = User::find($id);
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
+        $user->name = request()->name;
+        $user->email = request()->email;
+        $user->password = request()->password;
         $user->save();
         return redirect()->back();
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $user = User::find($id);

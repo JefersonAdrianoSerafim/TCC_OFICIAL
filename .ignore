@@ -1,0 +1,4 @@
+Input de data em compromisso
+<input type="date" name="commitment_date" id="" placeholder="Data" value="{{old('commitment_date')}}">
+
+Exibição de data em compromisso

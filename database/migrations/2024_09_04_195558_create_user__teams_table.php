@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreign('id_team_fk')->references('id')->on('teams');
             $table->unsignedBigInteger('id_user_fk');
             $table->foreign('id_user_fk')->references('id')->on('users');
-            $table->boolean('creator_userteam');
+            $table->boolean('creator_userteam')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
