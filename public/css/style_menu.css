@@ -133,6 +133,78 @@ Menu de agenda
     transition: 0.5s ease;
 }
 
+.containerLeftAgenda h1,p{
+    align-self: center;
+
+}
+
+.containerLeftAgenda .containerCreate{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.containerCreate form{
+    display: flex;
+    width: 50%;
+    align-items: center;
+}
+
+.containerCreate form select,input{
+    border-radius: 10px;
+    border: 1px solid darkblue;
+}
+
+.containerCreate form select{
+    border-radius: 10px;
+    border: 1px solid darkblue;
+    width: 50%;
+}
+
+.containerCreate .createButton{
+    margin-top: 20px;
+    background-color: darkblue;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.5s ease;
+}
+
+.containerCreate .createButton:hover{
+    scale:1.1;
+    cursor: pointer;
+    box-shadow: 1px 0 10px darkblue;
+    transition: 0.5s ease;
+}
+
+.containerEdit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.containerEdit form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+    align-items: center;
+}
+
+.containerEdit form, input{
+    padding: 10px 20px;
+
+}
+
+
+
+
+
+
 .containerLeftAgenda:hover {
     flex-basis: 70%;
     transition: 0.5s ease;
@@ -151,9 +223,53 @@ Menu de agenda
     ;
     flex-wrap: wrap;
 }
+.containerRightAgenda h1,p{
+    align-self: center;
+
+}
+
+.containerRightAgenda .containerCreate{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.containerEdit .createButton{
+    margin-top: 20px;
+    background-color: darkblue;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.5s ease;
+}
+
+.containerEdit .createButton:hover{
+    scale:1.1;
+    cursor: pointer;
+    box-shadow: 1px 0 10px darkblue;
+    transition: 0.5s ease;
+}
 
 .containerRightAgenda:hover {
     flex-basis: 50%;
+    transition: 0.5s ease;
+}
+
+.containerEdit .editButton{
+    margin-top: 20px;
+    background-color: darkcyan;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.5s ease;
+}
+
+.containerEdit .editButton:hover{
+    scale:1.1;
+    cursor: pointer;
+    box-shadow: 1px 0 10px darkblue;
     transition: 0.5s ease;
 }
 
@@ -164,10 +280,34 @@ Menu de agenda
 Menu de agenda
 */
 
+.buttonsTable{
+    display: flex;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.5s ease;
+};
+
+.buttonsTable .editButton:hover{
+    scale: 1.1;
+}
+
+.buttonsTable .deleteButton:hover{
+    scale: 1.1;
+
+}
+
+
 table {
     border: 1px solid darkblue;
     border-collapse: collapse;
+    width: 90%;
+    align-self: center;
 }
+
+td, th {
+    padding: 10px; /* Adds space inside each table cell */
+}
+
 
 
 .theadTable {
@@ -183,8 +323,6 @@ table {
 }
 
 .buttons {
-    align-self: center;
-    margin-top: 10px;
     display: flex;
     gap: 20px;
 }
@@ -204,7 +342,6 @@ table {
 }
 
 .createButton {
-
     background-color: darkblue;
     color: white;
 }
@@ -212,11 +349,14 @@ table {
 .deleteButton {
     background-color: darkred;
     color: white;
+    align-self: center;
 }
 
 .editButton {
     background-color: darkcyan;
     color: white;
+    align-self: center;
+    border-radius: 10px;
 }
 
 .containerActiveCenterAgenda .containerCreate {
@@ -237,6 +377,7 @@ table {
 }
 
 
+
 /*
 Menu de perfil
 */
@@ -248,18 +389,53 @@ Menu de turmas
 */
 
 
-.containerActiveMenu {
-    display: flex;
-    width: 100vw;
 
+
+
+.containerLeftTeam{
+    padding: 10px;
+    display: flex;
+    height: 100vh;
+    flex-basis: 60%;
+    flex-direction: column;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: 0.5s ease;
+    color: darkblue;
+    align-items: center;
 }
 
+.containerLeftTeam:hover{
+    flex-basis: 70%;
+    transition: 0.5s ease;
+}
+
+
+.containerLeftTeam .containerCreate{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.containerRightTeam{
+    display: flex;
+    flex-basis: 40%;
+    background-color: lightblue;
+    transition: 0.5s ease;
+}
+.containerRightTeam:hover{
+    flex-basis: 50%;
+    transition: 0.5s ease;
+}
 .containerActive{
     display: flex;
     flex-grow: 1;
 }
 
-.containerTeam{
+.containerActiveMenu {
     display: flex;
-    flex-direction: column;
+    width: 100vw;
+
 }
